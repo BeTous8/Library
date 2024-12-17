@@ -24,7 +24,47 @@
 }
 
 .book-card p {
-    padding: 5px 10px;
+    padding:10px;
 }
 
+.show-dialog {
+    margin: 10px;
+}
 
+.dialog {
+    width: 300px;
+    height: 330px;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    border-radius: 10px;
+    border: none;
+    outline: 2px solid gray;;
+}
+
+.dialog div {
+    /* margin: 10px;
+    padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.dialog div input {
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid gray;
+    
+}
+
+.dialog button {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid gray;
+    
+    
+}

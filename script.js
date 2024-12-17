@@ -1,5 +1,6 @@
 const lib = document.querySelector(".library")
 
+
 const myLibrary = [];
 
 function Book(title, author, pages, readStatus) {
@@ -48,6 +49,16 @@ function displayBooks(myLibrary) {
 
 addBookToLibrary('Hobbit', 'J.R.R', 295, 'not read');
 addBookToLibrary('GOT', 'J.R.R', 469, 'not read');
-addBookToLibrary('LOR', 'J.R.R. Tolkien', 324, 'not read');
+addBookToLibrary('LOR', 'Tolkien', 324, 'read');
 console.log(myLibrary)
 displayBooks(myLibrary)
+
+
+// create button and dialog box and connect them
+const showBtn = document.querySelector(".show-dialog");
+const dialog = document.querySelector('.dialog')
+
+showBtn.addEventListener('click', () => {
+    dialog.showModal();
+})
+
