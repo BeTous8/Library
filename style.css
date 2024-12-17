@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.library {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+}
+
+
+.book-card {
+    /* display: flex; */
+    background-color: antiquewhite;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin: 10px;
+    /* padding: 10px; */
+    /* flex: 1 1 0; */
+    
+}
+
+.book-card p {
+    padding: 5px 10px;
+}
+
+

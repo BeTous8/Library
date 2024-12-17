@@ -1,3 +1,5 @@
+const lib = document.querySelector(".library")
+
 const myLibrary = [];
 
 function Book(title, author, pages, readStatus) {
@@ -15,7 +17,37 @@ function addBookToLibrary(title, author, pages, readStatus) {
 
 }
 
-addBookToLibrary('Hobbit', 'J.R.R', 295, 'not yet read');
-addBookToLibrary('Hobbit', 'J.R.R', 295, 'not yet read');
-addBookToLibrary('Hobbit', 'J.R.R', 295, 'not yet read');
+function displayBooks(myLibrary) {
+    lib.innerHTML = "";
+    for (const book of myLibrary) {
+        const card = document.createElement("div");
+        card.classList.add('book-card');
+        
+
+        const title = document.createElement("p");
+        // title.classList.add("title");
+        title.textContent = `Title: ${book.title}`;
+        card.append(title);
+
+        const author = document.createElement("p");
+        // author.classList.add("author");
+        author.textContent = `Author: ${book.author}`;
+        card.append(author)
+
+        const pages = document.createElement("p");
+        pages.textContent = `pages: ${book.pages}`;
+        card.append(pages);
+
+        const readStatus = document.createElement("p");
+        readStatus.textContent = `Status: ${book.read}`;
+        card.append(readStatus)
+        
+        lib.appendChild(card);
+    }
+}
+
+addBookToLibrary('Hobbit', 'J.R.R', 295, 'not read');
+addBookToLibrary('GOT', 'J.R.R', 469, 'not read');
+addBookToLibrary('LOR', 'J.R.R. Tolkien', 324, 'not read');
 console.log(myLibrary)
+displayBooks(myLibrary)
