@@ -14,7 +14,7 @@
 
 .book-card {
     /* display: flex; */
-    background-color: antiquewhite;
+    background-color: rgb(223, 224, 233);
     border-radius: 10px;
     font-size: 1rem;
     margin: 10px;
@@ -27,8 +27,19 @@
     padding:10px;
 }
 
+.book-card button {
+    margin: 10px;
+    padding: 3px;
+    cursor: grab;
+}
+
 .show-dialog {
     margin: 10px;
+    padding: 5px 8px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid rgb(99, 98, 98);
 }
 
 .dialog {
@@ -55,7 +66,7 @@
     font-size: 1.2rem;
     border-radius: 5px;
     border: none;
-    outline: 1px solid gray;
+    outline: 1px solid rgb(177, 175, 175);
     
 }
 
@@ -64,7 +75,7 @@
     padding: 5px;
     border-radius: 5px;
     border: none;
-    outline: 1px solid gray;
+    outline: 1px solid rgb(138, 136, 136);
     
     
 }

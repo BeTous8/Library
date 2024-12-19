@@ -10,28 +10,27 @@ function Book(title, author, pages, readStatus) {
     this.read = readStatus;
 }
 
-function addBookToLibrary(title, author, pages, readStatus) {
-  // do stuff here
-    let book = new Book(title, author, pages, readStatus);
-    myLibrary.push(book);
-    console.log(book)
-
-}
+function addBookToMyLibraryArray(title, author, pages, readStatus) {
+    // do stuff here
+      let book = new Book(title, author, pages, readStatus);
+      myLibrary.push(book);
+      displayBooks(myLibrary)
+  
+  }
 
 function displayBooks(myLibrary) {
     lib.innerHTML = "";
-    for (const book of myLibrary) {
+
+    myLibrary.forEach((book, index) => {
         const card = document.createElement("div");
         card.classList.add('book-card');
         
 
         const title = document.createElement("p");
-        // title.classList.add("title");
         title.textContent = `Title: ${book.title}`;
         card.append(title);
 
         const author = document.createElement("p");
-        // author.classList.add("author");
         author.textContent = `Author: ${book.author}`;
         card.append(author)
 
@@ -42,14 +41,45 @@ function displayBooks(myLibrary) {
         const readStatus = document.createElement("p");
         readStatus.textContent = `Status: ${book.read}`;
         card.append(readStatus)
+
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = `remove`;
+        card.append(removeBtn)
+
+        removeBtn.addEventListener("click", () => {
+            myLibrary.splice(index, 1);
+            displayBooks(myLibrary);
+            
+            
+        });
+
+        const editReadStatus = document.createElement('button');
+        editReadStatus.textContent = 'read/not read' ;
+        card.append(editReadStatus);
+
+        editReadStatus.addEventListener('click', () => {
+            if (book.read === 'read') {
+                book.read = 'not read';
+                readStatus.textContent = 'not read';
+            }
+            else {
+                book.read = 'read';
+                readStatus.textContent = 'read';
+            }
+            console.log(myLibrary[index]['read'])
+        })
         
         lib.appendChild(card);
-    }
+        
+    }); 
+        
+    
 }
 
-addBookToLibrary('Hobbit', 'J.R.R', 295, 'not read');
-addBookToLibrary('GOT', 'J.R.R', 469, 'not read');
-addBookToLibrary('LOR', 'Tolkien', 324, 'read');
+addBookToMyLibraryArray('Hobbit', 'J.R.R', 295, 'not read');
+addBookToMyLibraryArray('GOT', 'J.R.R', 469, 'not read');
+addBookToMyLibraryArray('LOR', 'Tolkien', 324, 'read');
 console.log(myLibrary)
 displayBooks(myLibrary)
 
@@ -60,5 +90,22 @@ const dialog = document.querySelector('.dialog')
 
 showBtn.addEventListener('click', () => {
     dialog.showModal();
-})
+});
+
+dialog.addEventListener('submit', (event) => {
+    event.preventDefault();
+    // alert("Form submission prevented!");
+    
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    const read = document.querySelector('#read').value;
+
+    addBookToMyLibraryArray(title, author, pages, read);
+    dialog.querySelector("form").reset();
+    dialog.close();
+
+
+});
+
 
