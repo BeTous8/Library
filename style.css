@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.header {
+    background-color: black;
+    color: white;
+    height: 5rem;
+    font-size: 2rem;
+    padding: 20px;
+}
+
 .library {
     display: flex;
     gap: 20px;

@@ -1,0 +1,3 @@
+[submodule "solution/project_library"]
+	path = solution/project_library
+	url = https://github.com/BeTous8/project_library.git
