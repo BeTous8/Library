@@ -1,4 +1,5 @@
-const lib = document.querySelector(".library")
+
+
 
 
 const myLibrary = [];
@@ -19,16 +20,32 @@ function addBookToMyLibraryArray(title, author, pages, readStatus) {
   }
 
 function displayBooks(myLibrary) {
-    lib.innerHTML = "";
+    const lib = document.querySelector(".library");
+    // lib.innerHTML = "";
+    const cards = lib.querySelectorAll(".book-card");
+    cards.forEach(card => card.remove())
 
     myLibrary.forEach((book, index) => {
         const card = document.createElement("div");
         card.classList.add('book-card');
         
+        const cardHeading = document.createElement('div');
+        cardHeading.classList.add('cardHeading')
 
         const title = document.createElement("p");
         title.textContent = `Title: ${book.title}`;
-        card.append(title);
+        cardHeading.append(title);
+        
+
+        const closeBtn = document.createElement('button');
+        cardHeading.append(closeBtn);
+
+        const closeSign = document.createElement('img');
+        closeSign.src = 'close.svg';
+        closeSign.alt = 'Close';
+        closeBtn.append(closeSign);
+
+        card.append(cardHeading);
 
         const author = document.createElement("p");
         author.textContent = `Author: ${book.author}`;
@@ -42,12 +59,12 @@ function displayBooks(myLibrary) {
         readStatus.textContent = `Status: ${book.read}`;
         card.append(readStatus)
 
+        const card_buttons = document.createElement('div');
+        card_buttons.classList.add('card-buttons')
 
-        const removeBtn = document.createElement("button");
-        removeBtn.textContent = `remove`;
-        card.append(removeBtn)
+       
 
-        removeBtn.addEventListener("click", () => {
+        closeBtn.addEventListener("click", () => {
             myLibrary.splice(index, 1);
             displayBooks(myLibrary);
             
@@ -56,21 +73,23 @@ function displayBooks(myLibrary) {
 
         const editReadStatus = document.createElement('button');
         editReadStatus.textContent = 'read/not read' ;
-        card.append(editReadStatus);
+        card_buttons.append(editReadStatus)
+        card.append(card_buttons);
 
         editReadStatus.addEventListener('click', () => {
             if (book.read === 'read') {
                 book.read = 'not read';
-                readStatus.textContent = 'not read';
+                readStatus.textContent = `Status: ${book.read}`;
             }
             else {
                 book.read = 'read';
-                readStatus.textContent = 'read';
+                readStatus.textContent = `Status: ${book.read}`;
             }
             console.log(myLibrary[index]['read'])
         })
-        
-        lib.appendChild(card);
+        const addBtn = document.querySelector(".show-dialog")
+        // lib.appendChild(card);
+        lib.insertBefore(card, addBtn)
         
     }); 
         
