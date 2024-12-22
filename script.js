@@ -38,6 +38,7 @@ function displayBooks(myLibrary) {
         
 
         const closeBtn = document.createElement('button');
+        closeBtn.classList.add('closeBtn')
         cardHeading.append(closeBtn);
 
         const closeSign = document.createElement('img');
