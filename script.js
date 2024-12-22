@@ -107,6 +107,7 @@ displayBooks(myLibrary)
 // create button and dialog box and connect them
 const showBtn = document.querySelector(".show-dialog");
 const dialog = document.querySelector('.dialog')
+const dialogContainer = document.querySelector('.dialog-container');
 const cancel = document.querySelector('#dialog-close')
 
 showBtn.addEventListener('click', () => {
@@ -126,15 +127,26 @@ dialog.addEventListener('submit', (event) => {
     dialog.querySelector("form").reset();
     dialog.close();
 
-    
-
 
 });
+
+
+    
+dialog.addEventListener("click", (event) => {
+    if (!dialogContainer.contains(event.target)) dialog.close();
+    });
+
 
 cancel.addEventListener('click', () => {
     dialog.close();
 });
 
+
+
+
+// dialog.addEventListener('click', () => {
+
+// })
 
 
 
