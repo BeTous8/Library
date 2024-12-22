@@ -76,9 +76,6 @@ body {
 }
 
 .show-dialog {
-    margin: 10px;
-    padding: 5px 8px;
-    font-size: 1em;
     border-radius: 5px;
     border: none;
     outline: 1px solid rgb(255, 255, 255);
@@ -90,15 +87,21 @@ body {
 }
 
 .add-sign {
-    width: 70px;
+    width: 80px;
     height: auto;
     cursor: grab;
-    box-shadow: 1px 2px 4px rgba(1,1,1,05);
+    box-shadow: 0px 1px 0px rgba(212, 212, 212, 0.3);
+    border: none;
+    outline: 1px rgb(238, 225, 225) solid;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgb(235, 239, 243);
+    
 }
 
 .dialog {
     width: 300px;
-    height: 330px;
+    height: 370px;
     position: fixed;
     inset: 0;
     margin: auto;
@@ -106,6 +109,31 @@ body {
     border: none;
     outline: 2px solid gray;;
 }
+
+.dialog .close {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    margin-bottom: -30px;
+    /* height: 30px; */
+    
+
+}
+
+.dialog .close #dialog-close {
+    grid-column: 4/5;
+    border: none;
+    outline: 1px solid white;
+    background-color: white;
+    cursor: grab;
+
+}
+
+#dialog-close img {
+    border: none;
+    
+}
+
+
 
 .dialog div {
     /* margin: 10px;

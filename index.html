@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
-    <title>Document</title>
+    <title>Library</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -17,6 +17,11 @@
     
     <dialog class="dialog">
         <form method="dialog">
+            <div class="close">
+                <button id="dialog-close">
+                    <img src="./close.svg" width="25px" height="25px" alt="close-dialog">
+                </button>
+            </div>
             <div>
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
@@ -37,11 +42,13 @@
                 </select>
             </div>
             <button type="submit">Submit</button>
-            <button class="Cancel">Cancel</button>
+            
         </form>
     </dialog>
     <div class="library">
-        <button class="show-dialog"><img class="add-sign" src="./plus-box.svg"></button>
+        <button class="show-dialog">
+            <img class="add-sign" src="./plus-box.svg">
+        </button>
     </div>
     
 </body>
