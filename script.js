@@ -1,7 +1,3 @@
-
-
-
-
 const myLibrary = [];
 
 function Book(title, author, pages, readStatus) {
@@ -66,10 +62,11 @@ function displayBooks(myLibrary) {
        
 
         closeBtn.addEventListener("click", () => {
-            myLibrary.splice(index, 1);
-            displayBooks(myLibrary);
-            
-            
+            card.classList.add("fade-out");
+            setTimeout(() => {
+                myLibrary.splice(index, 1);
+                card.remove();
+            }, 500);
         });
 
         const editReadStatus = document.createElement('button');
@@ -91,9 +88,11 @@ function displayBooks(myLibrary) {
         const addBtn = document.querySelector(".show-dialog")
         // lib.appendChild(card);
         lib.insertBefore(card, addBtn)
+
+
+        
         
     }); 
-        
     
 }
 
