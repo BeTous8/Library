@@ -120,6 +120,43 @@ const dialog = document.querySelector('.dialog')
 const dialogContainer = document.querySelector('.dialog-container');
 const cancel = document.querySelector('#dialog-close')
 
+
+const form = document.querySelector("form");
+const titleContainer = document.querySelector('.title-container')
+const fieldError = document.querySelector(".error");
+const fieldTitle = document.querySelector('#title');
+
+// Function to show error message
+function showError() {
+    if (fieldTitle.validity.valueMissing) {
+        fieldError.textContent = 'Type the title';
+        fieldError.classList.add('active');
+    } else if (fieldTitle.validity.tooShort) {
+        fieldError.textContent = `must be at least ${fieldTitle.minLength} characters`
+    } else {
+        fieldError.textContent = ''; // Clear error message if valid
+        fieldError.classList.remove('active');
+    }
+}
+
+// Event listener for input event
+fieldTitle.addEventListener('input', showError);
+
+// Event listener for blur event (when the field loses focus)
+fieldTitle.addEventListener('blur', showError);
+
+// Event listener for form submission
+form.addEventListener('submit', (event) => {
+    if (!fieldTitle.validity.valid) {
+        showError();
+        event.preventDefault(); // Prevent form submission if invalid
+    }
+});
+
+
+
+
+
 showBtn.addEventListener('click', () => {
     dialog.showModal();
 });
@@ -141,6 +178,7 @@ dialog.addEventListener('submit', (event) => {
 });
 
 
+
     
 dialog.addEventListener("click", (event) => {
     if (!dialogContainer.contains(event.target)) dialog.close();
@@ -154,9 +192,8 @@ cancel.addEventListener('click', () => {
 
 
 
-// dialog.addEventListener('click', () => {
 
-// })
+
 
 
 
